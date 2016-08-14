@@ -21,7 +21,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.provider "virtualbox" do |vb|
     vb.memory = "1024"
-   end
+  end
 
-  config.vm.provision "shell", path: initScriptPath, privileged: false
+  # config.vm.provision "shell", path: initScriptPath, privileged: false
 end
