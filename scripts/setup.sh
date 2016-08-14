@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 # 163 sources
-sudo cp /etc/apt/sources.list /etc/apt/sources.list.ubuntu
-sudo sed -i 's/archive.ubuntu.com/mirrors.ustc.edu.cn/g' /etc/apt/sources.list
+sudo mv /etc/apt/sources.list /etc/apt/sources.list.ubuntu
+wget -O /etc/apt/sources.list https://raw.githubusercontent.com/xxstop/vagrants/ubuntu4win/etc/apt/sources.list.tuna
 
 # update
 sudo apt-get -y update && apt-get -y upgrade
@@ -24,7 +24,7 @@ sudo apt-get -y install wget curl git
 sudo apt-get -y install tmux zsh
 
 # tmux config
-wget -O ~/.tmux.conf https://raw.githubusercontent.com/xxstop/vagrants/ubuntu4win/.tmux.conf
+wget -O ~/.tmux.conf https://raw.githubusercontent.com/xxstop/vagrants/ubuntu4win/vagrant/.tmux.conf
 
 # oh my zsh
 sudo sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
