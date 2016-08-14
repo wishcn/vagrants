@@ -1,0 +1,1 @@
+{"virtualbox":{"/w":{"guestpath":"/w","hostpath":"/Users/xxstop/PhpStormProjects","disabled":false,"__vagrantfile":true},"/vagrant":{"guestpath":"/vagrant","hostpath":"/Users/xxstop/vagrants","disabled":false,"__vagrantfile":true}}}
