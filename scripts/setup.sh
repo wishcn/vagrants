@@ -32,3 +32,4 @@ sudo sed -i "s/\/home\/vagrant:\/bin\/bash/\/home\/vagrant:\/bin\/zsh/g" /etc/pa
 
 # emacs vim
 sudo apt-get -y install vim emacs
+git clone http://github.com/eschulte/emacs24-starter-kit.git ~/.emacs.d
