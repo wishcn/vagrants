@@ -29,6 +29,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     s.args = [File.read(File.expand_path("~/.ssh/id_dsa")), "~/.ssh/id_dsa".split('/').last]
   end
 
-  # config.vm.provision "shell", path: initScriptPath, privileged: false
-  # config.vm.provision "shell", path: configScriptPath, privileged: false
+  config.vm.provision "shell", path: initScriptPath, privileged: false
+  config.vm.provision "shell", path: configScriptPath, privileged: false
 end
