@@ -8,6 +8,7 @@ VAGRANTFILE_API_VERSION = "2"
 scriptPath = $scriptPath ||= File.dirname(__FILE__) + "/scripts"
 
 initScriptPath = $scriptPath + "/setup.sh"
+configScritpPath = $scriptPath + "/config.sh"
 
 Vagrant.require_version '>=1.8.4'
 
@@ -15,13 +16,19 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = "ubuntu/trusty64"
 
   # config.vm.network "forwarded_port", guest: 80, host: 8080
-  # config.vm.network "forwarded_port", guest: 22, host: 2222
   
   config.vm.synced_folder "~/PhpstormProjects", "/w/"
 
   config.vm.provider "virtualbox" do |vb|
     vb.memory = "1024"
   end
+  
+  config.vm.provision "shell" do |s|
+    s.privileged = false
+    s.inline = "echo \"$1\" > /home/vagrant/.ssh/$2 && chmod 600 /home/vagrant/.ssh/$2"
+    s.args = [File.read(File.expand_path("~/.ssh/id_dsa")), "~/.ssh/id_dsa".split('/').last]
+  end
 
-  config.vm.provision "shell", path: initScriptPath, privileged: false
+  # config.vm.provision "shell", path: initScriptPath, privileged: false
+  # config.vm.provision "shell", path: configScriptPath, privileged: false
 end
