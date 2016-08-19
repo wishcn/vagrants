@@ -13,7 +13,7 @@ configScriptPath = $scriptPath + "/config.sh"
 Vagrant.require_version '>=1.8.4'
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-  config.vm.box = "ubuntu/trusty64"
+  config.vm.box = "ubuntu/xenial64"
 
   # config.vm.network "forwarded_port", guest: 80, host: 8080
   
