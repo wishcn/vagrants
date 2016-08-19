@@ -8,7 +8,7 @@ VAGRANTFILE_API_VERSION = "2"
 scriptPath = $scriptPath ||= File.dirname(__FILE__) + "/scripts"
 
 initScriptPath = $scriptPath + "/setup.sh"
-configScritpPath = $scriptPath + "/config.sh"
+configScriptPath = $scriptPath + "/config.sh"
 
 Vagrant.require_version '>=1.8.4'
 
@@ -26,7 +26,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provision "shell" do |s|
     s.privileged = false
     s.inline = "echo \"$1\" > /home/vagrant/.ssh/$2 && chmod 600 /home/vagrant/.ssh/$2"
-    s.args = [File.read(File.expand_path("~/.ssh/id_dsa")), "~/.ssh/id_dsa".split('/').last]
+    s.args = [File.read(File.expand_path("~/.ssh/id_rsa")), "~/.ssh/id_rsa".split('/').last]
   end
 
   config.vm.provision "shell", path: initScriptPath, privileged: false
