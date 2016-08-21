@@ -2,15 +2,16 @@
 
 # 163 sources
 sudo mv /etc/apt/sources.list /etc/apt/sources.list.ubuntu
-sudo wget -O /etc/apt/sources.list https://raw.githubusercontent.com/xxstop/vagrants/ubuntu4win/etc/apt/sources.list.xenial
+sudo wget -O /etc/apt/sources.list https://raw.githubusercontent.com/xxstop/vagrants/ubuntu4win/etc/apt/sources.list.tuna
 
 # update
 sudo apt-get -y update && apt-get -y upgrade
 
 # docker
+sudo add-apt-repository ppa:cassou/emacs
 sudo apt-get -y install apt-transport-https ca-certificates
 sudo apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
-echo 'deb https://apt.dockerproject.org/repo ubuntu-xenial main' | sudo tee /etc/apt/sources.list.d/docker.list
+echo 'deb https://apt.dockerproject.org/repo ubuntu-trusty main' | sudo tee /etc/apt/sources.list.d/docker.list
 sudo apt-get -y update
 sudo apt-get -y install docker-engine
 ## docker not sudo
@@ -31,5 +32,6 @@ sudo sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/to
 sudo sed -i "s/\/home\/vagrant:\/bin\/bash/\/home\/vagrant:\/bin\/zsh/g" /etc/passwd
 
 # emacs vim
-sudo apt-get -y install vim emacs
+sudo apt-get -y install vim
+sudo apt-get install emacs24 emacs24-el emacs24-common-non-dfsg
 git clone http://github.com/eschulte/emacs24-starter-kit.git ~/.emacs.d
