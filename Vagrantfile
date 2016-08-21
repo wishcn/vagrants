@@ -8,6 +8,7 @@ VAGRANTFILE_API_VERSION = "2"
 scriptPath = $scriptPath ||= File.dirname(__FILE__) + "/scripts"
 
 initScriptPath = $scriptPath + "/setup.sh"
+retryScriptPath = $scriptPath + "/china-retry.sh"
 configScriptPath = $scriptPath + "/config.sh"
 
 Vagrant.require_version '>=1.8.4'
@@ -29,6 +30,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     s.args = [File.read(File.expand_path("~/.ssh/id_rsa")), "~/.ssh/id_rsa".split('/').last]
   end
 
-  config.vm.provision "shell", path: initScriptPath, privileged: false
-  config.vm.provision "shell", path: configScriptPath, privileged: false
+  # config.vm.provision "shell", path: initScriptPath, privileged: false
+  # config.vm.provision "shell", path: configScriptPath, privileged: false
+  
+  config.vm.provision "shell", path: retryScriptPath, privileged: false
 end
