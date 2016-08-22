@@ -18,7 +18,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # config.vm.network "forwarded_port", guest: 80, host: 8080
   
-  config.vm.synced_folder "~/PhpstormProjects", "/w/"
+  config.vm.synced_folder "~/PhpstormProjects", "/w/php"
+  config.vm.synced_folder "~/dockers", "/w/dockers"
 
   config.vm.provider "virtualbox" do |vb|
     vb.memory = "1024"
