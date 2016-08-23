@@ -1,10 +1,10 @@
 {
     "name": "ubuntu/xenial64",
     "versions": [{
-        "version": "20160815.0.0",
+        "version": "20160818.0.0",
         "providers": [{
             "name": "virtualbox",
-            "url": "file://C:/Users/xxstop/Downloads/xenial-server-cloudimg-amd64-vagrant.box"
+            "url": "~/Downloads/trusty-server-cloudimg-amd64-vagrant-disk1.box"
         }]
     }]
 }
