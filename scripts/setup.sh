@@ -6,7 +6,6 @@ sudo wget -O /etc/apt/sources.list https://raw.githubusercontent.com/xxstop/vagr
 
 # update
 sudo apt-get -y update 
-sudo apt-get -y upgrade
 
 # docker
 sudo apt-add-repository ppa:ubuntu-elisp/ppa
