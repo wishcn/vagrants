@@ -28,9 +28,18 @@ sudo apt-get -y install tmux zsh
 # tmux config
 wget -O ~/.tmux.conf https://raw.githubusercontent.com/xxstop/vagrants/ubuntu4win/vagrant/.tmux.conf
 
+# autojump
+git clone git://github.com/joelthelion/autojump.git ~/autojump
+cd ~/autojump && ./install.py
+
 # oh my zsh
-sudo sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 sudo sed -i "s/\/home\/vagrant:\/bin\/bash/\/home\/vagrant:\/bin\/zsh/g" /etc/passwd
+read -d '' autojumpStr <<EOF
+[[ -s /home/vagrant/.autojump/etc/profile.d/autojump.sh ]] && source ~/.autojump/etc/profile.d/autojump.sh
+autoload -U compinit && compinit -u
+EOF
+echo "$autojumpStr" >> ~/.zshrc
 
 # emacs vim
 sudo apt-get -y install vim
